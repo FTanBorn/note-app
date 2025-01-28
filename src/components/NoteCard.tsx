@@ -24,19 +24,21 @@ export default function NoteCard({ note }: NoteCardProps) {
 
   return (
     <>
-      <div className="bg-white rounded-lg shadow-sm p-4 hover:shadow-md transition-shadow">
+      <div className="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow p-4">
         <div className="flex justify-between items-start mb-2">
-          <h3 className="text-lg font-medium text-gray-900">{note.title}</h3>
-          <div className="flex space-x-2">
+          <h3 className="text-lg font-medium text-gray-900 flex-1 pr-4">
+            {note.title}
+          </h3>
+          <div className="flex gap-2 shrink-0">
             <button
               onClick={() => setIsEditing(true)}
-              className="text-blue-500 hover:text-blue-600"
+              className="text-blue-500 hover:text-blue-600 text-sm"
             >
               Düzenle
             </button>
             <button
               onClick={handleDelete}
-              className="text-red-500 hover:text-red-600"
+              className="text-red-500 hover:text-red-600 text-sm"
             >
               Sil
             </button>
@@ -45,14 +47,12 @@ export default function NoteCard({ note }: NoteCardProps) {
 
         <p className="text-gray-600 mb-4 whitespace-pre-wrap">{note.content}</p>
 
-        <div className="flex justify-between items-center text-sm">
-          <span className="bg-gray-100 text-gray-600 px-2 py-1 rounded-full">
+        <div className="flex justify-between items-center text-sm mt-auto">
+          <span className="bg-gray-100 text-gray-600 px-2 py-1 rounded-full text-sm">
             {note.category}
           </span>
-          <span className="text-gray-500">
-            {format(new Date(note.updatedAt), "d MMMM yyyy HH:mm", {
-              locale: tr,
-            })}
+          <span className="text-gray-500 text-sm">
+            {new Date(note.updatedAt).toLocaleDateString("tr-TR")}
           </span>
         </div>
       </div>
