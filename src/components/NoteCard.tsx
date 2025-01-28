@@ -4,8 +4,6 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { deleteNote } from "@/lib/features/noteSlice";
 import { Note } from "@/types";
-import { format } from "date-fns";
-import { tr } from "date-fns/locale";
 import NoteModal from "./NoteModal";
 
 interface NoteCardProps {
